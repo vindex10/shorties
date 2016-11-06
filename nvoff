@@ -7,3 +7,4 @@ modprobe -r nvidia
 echo "OFF" >> /proc/acpi/bbswitch
 printf "\nDone!\n"
 cat /proc/acpi/bbswitch
+
