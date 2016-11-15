@@ -12,8 +12,13 @@ done
 
 if [[ ${#prjname} > 0 ]];
 then
-	subl ${*:---project $prjname}
-else
-	subl $*
-fi
+	if [ $# -eq 0 ]
+	then
+		subl --project $prjname
+	else
+		subl --project $prjname  "$@"
+	fi
 
+else
+	subl "$@"
+fi
