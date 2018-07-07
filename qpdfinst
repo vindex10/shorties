@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export instdb="/home/vindex10/.local/share/data/qpdfview/qpdfview"
+export instdb="/home/vindex10/.local/share/qpdfview/qpdfview"
 
 if [ $# -eq 0 ]; then
 	sqlite3 "$instdb/database" "select instanceName from tabs_v4 group by instanceName;"
