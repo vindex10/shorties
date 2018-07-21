@@ -16,4 +16,4 @@ done
 
 echo $OPTS
 
-newsbeuter $OPTS
+newsboat $OPTS
