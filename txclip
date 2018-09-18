@@ -1,0 +1,5 @@
+#!/bin/bash
+read cmd;
+echo "$cmd" | xclip -sel clip
+sleep 10
+echo "" | xclip -sel clip
