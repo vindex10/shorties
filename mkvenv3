@@ -1,0 +1,12 @@
+#!/bin/bash
+
+ENV_LOC=$1;
+
+if [ -z $ENV_LOC ]; then
+    exit 1;
+fi
+
+python3 -m venv $ENV_LOC
+ln -s $ENV_LOC/bin/activate .
+. activate
+python3 -m pip install -U pip
