@@ -14,12 +14,18 @@ function parse_volume() {
 
 buf=""
 default_batch=""
+
+sink_name="$2"
+if [ -z "$sink_name" ]; then
+    sink_name="$default_sink"
+fi
+
 while true; do
     read line;
     status="$?";
     echo "$line" | grep '^Sink #[0-9]\+' > /dev/null
     if ([ "$?" == "0" ] || [ "$status" != "0" ]) && [ "$buf" ]; then
-        echo "$buf" | grep "Name: $default_sink" > /dev/null
+        echo "$buf" | grep "Name: $sink_name" > /dev/null
         if [ "$?" == "0" ]; then
             default_batch="$buf"
             break
