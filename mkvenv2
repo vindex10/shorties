@@ -6,7 +6,7 @@ if [ -z $ENV_LOC ]; then
     exit 1;
 fi
 
-python3 -m venv "$@"
+virtualenv -p python2 "$@"
 ln -s $ENV_LOC/bin/activate .
 . activate
-python3 -m pip install -U pip pylint flake8 ipdb
+python2 -m pip install -U pip flake8 pylint ipdb
