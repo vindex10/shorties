@@ -1,4 +1,4 @@
 #!/bin/bash
 
 mpwcall=$(echo "mpw -f none $@")
-terminal -x /bin/bash -i -c "$mpwcall | txclip"
+terminal -x /bin/bash -c "$mpwcall | txclip"
