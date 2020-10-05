@@ -9,4 +9,4 @@ fi
 python3 -m venv "$@"
 ln -s $ENV_LOC/bin/activate .
 . activate
-python3 -m pip install -U pip pylint flake8 ipdb
+python3 -m pip install -U pip pylint flake8 ipdb rope ropemode ropevim neovim
