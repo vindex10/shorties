@@ -61,7 +61,7 @@ function bootloaders() {
 
 function get_latest() {
 	tag="$1"
-	echo $(ls -1 | grep vmlinuz | grep "$tag" | grep -v "old$" | sed 's/^vmlinuz-//' | sed "s/-$tag//" | sort | tail -n1)
+	echo $(ls -1 | grep vmlinuz | grep "$tag" | grep -v "old$" | sed 's/^vmlinuz-//' | sed "s/-$tag//" | sort -V | tail -n1)
 }
 
 cmd="$1"
