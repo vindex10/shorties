@@ -1,12 +1,32 @@
 #!/bin/bash
 
-ENV_LOC="${@: -1}";
+ENV_LOC="$1";
+shift;
+
+if [ -f activate ]; then
+    echo "activate already exists. exit"
+fi
 
 if [ -z $ENV_LOC ]; then
     exit 1;
 fi
 
-python3 -m venv "$@"
+function upgrade_pip() {
+    python3 -m pip install -U pip
+}
+
+function upgrade_deps() {
+    python3 -m pip install -U pylint flake8 ipdb python-language-server[rope] neovim wheel
+}
+
+if [ ! -z "$VIRTUAL_ENV" ]; then
+    echo "Already inside of venv. Only upgrading deps"
+    upgrade_deps
+    exit 0;
+fi
+
+python3 -m venv "$ENV_LOC" $@
 ln -s $ENV_LOC/bin/activate .
 . activate
-python3 -m pip install -U pip pylint flake8 ipdb rope ropemode ropevim neovim
+upgrade_pip
+upgrade_deps
