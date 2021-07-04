@@ -8,7 +8,7 @@ function upgrade_pip() {
 }
 
 function upgrade_deps() {
-    python3 -m pip install -U pylint flake8 ipdb python-language-server[rope] neovim wheel
+    python3 -m pip install -U pylint flake8 ipdb python-lsp-server pynvim wheel
 }
 
 if [ ! -z "$VIRTUAL_ENV" ]; then
